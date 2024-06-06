@@ -1,0 +1,20 @@
+/* Wrapper */
+.wrapper {
+    display: flex !important;
+    height: 100vh !important; /* Full height of the viewport */
+}
+
+/* Aside */
+.aside {
+    width: 300px !important; /* Fixed width */
+    overflow-y: auto !important; /* Enables vertical scrolling */
+    height: 100% !important; /* Full height of the parent */
+    border-right: 1px solid #ddd !important; /* Optional: visual separation */
+}
+
+/* Main Content */
+.main-content {
+    flex-grow: 1 !important; /* Takes up the remaining space */
+    padding: 20px !important; /* Optional: some padding for content */
+    overflow: hidden !important; /* Prevents scroll in the main content */
+}
