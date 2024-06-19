@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<style>
 
+</style>
 @include('layouts._head')
 
 <body
@@ -81,6 +83,13 @@
                     <i class="nav-icon fas fa-users elevation-3"></i>
                     <span class="brand-text">Roles</span>
                 </a>
+            @endcan
+
+            @can('for-route', ['timeline'])
+            <a href="{{ route('timeline') }}" class="brand-link">
+                <i class="nav-icon fas fa-user elevation-3"></i>
+                <span class="brand-text">Timeline</span>
+            </a>
             @endcan
 
         </aside>

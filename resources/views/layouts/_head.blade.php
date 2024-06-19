@@ -29,18 +29,71 @@
 
     @stack('styles')
     <style>
-    /* Add a hover effect to the sidebar links */
+
+    /* Hover effect for sidebar links */
     .main-sidebar a:hover {
         background-color: #454d55;
     }
-    /* Add transition for sidebar collapse */
+
+    /* Smooth transition for sidebar width */
     .main-sidebar {
+        -webkit-transition: width 0.8s ease !important;
+        -moz-transition: width 0.8s ease !important;
+        -o-transition: width 0.8s ease !important;
         transition: width 0.8s ease !important;
     }
 
     .sidebar-collapse .main-sidebar {
+        -webkit-transition: width 0.8s ease !important;
+        -moz-transition: width 0.8s ease !important;
+        -o-transition: width 0.8s ease !important;
         transition: width 0.8s ease !important;
-        width: 50px; /* Set the collapsed width */
+        /* width: 50px !important; Set the collapsed width if necessary */
+    }
+
+    /* Customize scrollbar appearance */
+    ::-webkit-scrollbar {
+        width: 5px;
+        height: 5px; 
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background: rgba(90, 90, 90, 0.8);
+    }
+
+    ::-webkit-scrollbar-track {
+        background: rgba(0, 0, 0, 0.2);
+    }
+
+    /* Wrapper styling */
+    .wrapper {
+        display: flex;
+        flex-direction: column;
+        height: 100vh; 
+        width: 100vw;
+        overflow-x: hidden; 
+    }
+
+    /* Main sidebar styling */
+    .main-sidebar {
+        display: flex;
+        flex-direction: column;
+        overflow-y: scroll !important; 
+        overflow-x: hidden; 
+    }
+
+    /* Content wrapper styling */
+    .content-wrapper {
+        flex-grow: 1;
+        overflow-y: scroll; 
+        overflow-x: hidden; 
+        position: relative;
+    }
+
+    /* Main content styling */
+    .content-wrapper .main-content {
+        overflow-y: scroll; 
+        overflow-x: hidden; 
     }
 
     </style>

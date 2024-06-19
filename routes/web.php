@@ -15,6 +15,7 @@ use App\Http\Livewire\EditUserComponent;
 use App\Http\Livewire\HomeComponent;
 use App\Http\Livewire\IndexRoleComponent;
 use App\Http\Livewire\IndexUserComponent;
+use App\Http\Livewire\TimelineComponent;
 
 Route::post('login', [LoginController::class, 'login']);
 Route::post('logout', [LoginController::class, 'logout'])->name('logout');
@@ -47,6 +48,7 @@ Route::middleware(['auth'])->group(function () {
     );
 
     Route::middleware(['authorization'])->group(function () {
+        Route::get('timeline', TimelineComponent::class)->name('timeline');
         Route::get('home', HomeComponent::class)->name('home.index');
         Route::get('users', IndexUserComponent::class)->name('users.index');
         Route::get('users/create', CreateUserComponent::class)->name('users.create');

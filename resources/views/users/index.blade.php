@@ -14,7 +14,7 @@
             <div class="card">
                 <div class="card-header">
                     <h3 class="card-title">List of Users</h3>
-                    <x-inputs.range-calendar wire:model="dateRange" wire:change="$emit('update-transaction-data', $event.target.value)" key="calendar" />
+                    {{-- <x-inputs.range-calendar wire:model="dateRange" wire:change="$emit('update-transaction-data', $event.target.value)" key="calendar" /> --}}
                     @can('for-route', ['users.create'])
                         <a href="{{ route('users.create') }}" class="float-right">Add New</a>
                     @endcan
