@@ -190,4 +190,9 @@ class User extends Authenticatable
 
         return $model->$ownerField === $this->id;
     }
+
+    public function loan_history()
+    {
+        $this->hasMany(LoanHistory::class);
+    }
 }
