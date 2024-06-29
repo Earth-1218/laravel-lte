@@ -111,7 +111,7 @@
             <strong>Copyright &copy; {{ date('Y') }} <a href="https://jcergolj.me.uk">jcergolj</a>.</strong>
         </footer>
     </div>
-
+    @parent
     @livewireScripts
 
     <script src="{{ asset('js/app.js') }}"></script>

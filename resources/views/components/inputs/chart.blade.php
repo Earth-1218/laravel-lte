@@ -1,4 +1,4 @@
-@props(['chartId', 'chartData'])
+{{-- @props(['chartId', 'chartData']) --}}
 
 <div id="{{ $chartId }}" class="apex-chart"></div>
 
@@ -9,35 +9,33 @@
 @push('scripts')
 <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
 <script>
-    document.addEventListener('livewire:load', function () {
-        console.log('Livewire loaded'); // Debugging line
-
+    document.addEventListener('DOMContentLoaded', function () {
         var options = {
             chart: {
-                type: 'pie',
-                height: 350,
+                type: '{{ $chartType }}',
+                height: {{ $chartHeight }},
             },
-            series: @json(array_values($chartData)),
-            labels: @json(array_keys($chartData))
+            series: {!! json_encode($series) !!},
+            @if (in_array($chartType, ['bar', 'line']))
+                xaxis: {
+                    categories: {!! json_encode($labels) !!}
+                }
+            @else
+                labels: {!! json_encode($labels) !!}
+            @endif
         };
 
         var chart = new ApexCharts(document.querySelector("#{{ $chartId }}"), options);
         chart.render()
             .then(function() {
-                console.log('Chart rendered successfully'); // Debugging line
+                console.log('Chart rendered successfully');
             })
             .catch(function(error) {
-                console.error('Error rendering chart:', error); // Debugging line
+                console.error('Error rendering chart:', error);
             });
-
-        Livewire.on('updateChart', function (newData) {
-            chart.updateSeries([{
-                data: newData.series
-            }]);
-            chart.updateOptions({
-                labels: newData.labels
-            });
-        });
     });
 </script>
 @endpush
+
+
+

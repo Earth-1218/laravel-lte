@@ -2,8 +2,9 @@
 
 <div class="input-group mb-3" x-data="{ showPassword: false }">
     <input
+        key="{}"
         x-ref="{{ $key }}"
-        wire:model.defer="{{ $key }}"
+        wire:model="{{ $key }}"
         type="password"
         name="{{ $key }}"
         class="form-control @errorClass($key)"

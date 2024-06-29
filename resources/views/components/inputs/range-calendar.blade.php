@@ -1,25 +1,14 @@
-@props(['key'])
+@props(['key' => 'dateRange', 'dateFormat'])
 
-<div class="text-left input-group mb-3">
-    <input
-        {{ $attributes }}
-        type="text"
-        id="{{ $key }}"
-        name="{{ $key }}"
-        class="form-control @errorClass($key)"
-        placeholder="{{ trans("validation.attributes.$key") }}"
-    >
-
-    <x-inputs.fa fontAwesome="fa-edit" />
-
-    <x-inputs.error field="{{ $key }}" />
+<div>
+    <input type="text" name="{{ $key }}" id="{{ $key }}" class="form-control"  />
 </div>
 
 @push('scripts')
 <script>
-    document.addEventListener('livewire:load', function () {
+    document.addEventListener('DOMContentLoaded', function () {
         var calendarInput = $('input[name="{{ $key }}"]');
-
+        
         calendarInput.daterangepicker({
             opens: 'right',
             showDropdowns: true,
@@ -38,7 +27,7 @@
                 'Last Month': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
             },
             locale: {
-                format: "DD/MM/YYYY",
+                format: "{{ $dateFormat }}",
                 separator: " - ",
                 applyLabel: "Apply",
                 cancelLabel: "Cancel",
@@ -58,23 +47,21 @@
             startDate: moment().startOf('month'),
             endDate: moment().endOf('month')
         }, function(start, end, label) {
-            var selectedDateRange = start.format('YYYY-MM-DD') + ' - ' + end.format('YYYY-MM-DD');
+            var selectedDateRange = start.format('{{ $dateFormat }}') + ' - ' + end.format('{{ $dateFormat }}');
             console.log('New date range selected: ' + selectedDateRange + ' (predefined range: ' + label + ')');
 
-            // Trigger Livewire update
-            @this.set('{{ $attributes->whereStartsWith('wire:model')->first() }}', selectedDateRange);
+            @this.set('{{ $key }}', selectedDateRange);
         });
 
-        // Trigger change when the page loads to set the initial value
         calendarInput.on('apply.daterangepicker', function(ev, picker) {
-            var selectedDateRange = picker.startDate.format('YYYY-MM-DD') + ' - ' + picker.endDate.format('YYYY-MM-DD');
-            @this.set('{{ $attributes->whereStartsWith('wire:model')->first() }}', selectedDateRange);
+            var selectedDateRange = picker.startDate.format('{{ $dateFormat }}') + ' - ' + picker.endDate.format('{{ $dateFormat }}');
+            @this.set('{{ $key }}', selectedDateRange);
         });
 
-        // Clear the date range when "Cancel" is clicked
         calendarInput.on('cancel.daterangepicker', function(ev, picker) {
-            @this.set('{{ $attributes->whereStartsWith('wire:model')->first() }}', '');
+            @this.set('{{ $key }}', '');
         });
     });
 </script>
 @endpush
+    

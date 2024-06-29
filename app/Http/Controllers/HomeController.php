@@ -14,8 +14,7 @@ class HomeController extends Controller
         $chartData = [
             '2021-01-01' => 30,
             '2021-01-02' => 40,
-            '2021-01-03' => 35,
-            // Add more data points here
+            '2021-01-03' => 35
         ];
 
         return view('home',compact('chartData'));
