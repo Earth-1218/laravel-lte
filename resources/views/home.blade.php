@@ -22,8 +22,8 @@
                             chart-id="transactionTimelineChart"
                             chart-type="bar"
                             chart-height="400"
-                            :series="$chartData['earningsChart']['series']"
-                            :labels="$chartData['earningsChart']['labels']"
+                            :series="$chartData['transactionTimelineChart']['series']"
+                            :labels="$chartData['transactionTimelineChart']['labels']"
                         />
                     </div>
                     <div class="col-md-6">
@@ -31,28 +31,28 @@
                             chart-id="transactionCaregorywiseChart"
                             chart-type="pie"
                             chart-height="350"
-                            :series="$chartData['transactionsPieChart']['series']"
-                            :labels="$chartData['transactionsPieChart']['labels']"
+                            :series="$chartData['transactionCategorywiseChart']['series']"
+                            :labels="$chartData['transactionCategorywiseChart']['labels']"
                         />
                     </div>
                 </div>
                 <div class="row mt-4">
                     <div class="col-md-6">
                         <x-inputs.chart 
-                            chart-id="commissionTimeline"
+                            chart-id="commissionTimelineChart"
                             chart-type="line"
                             chart-height="350"
-                            :series="$chartData['salesChart']['series']"
-                            :labels="$chartData['salesChart']['labels']"
+                            :series="$chartData['commissionTimelineChart']['series']"
+                            :labels="$chartData['commissionTimelineChart']['labels']"
                         />
                     </div>
                     <div class="col-md-6">
                         <x-inputs.chart 
-                            chart-id="commissionCategorywise"
+                            chart-id="commissionCategorywiseChart"
                             chart-type="donut"
                             chart-height="350"
-                            :series="$chartData['transactionsDonutChart']['series']"
-                            :labels="$chartData['transactionsDonutChart']['labels']"
+                            :series="$chartData['commissionCategorywiseChart']['series']"
+                            :labels="$chartData['commissionCategorywiseChart']['labels']"
                         />
                     </div>
                 </div>
