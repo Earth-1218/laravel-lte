@@ -58,24 +58,26 @@ class HomeComponent extends Component
     
     public function getChartData()
     {
+
         return [
-            "transactionsPieChart" => [
-                "series" => [44, 55, 13, 43, 22],
-                "labels" => ['Apple', 'Mango', 'Orange', 'Watermelon', 'Banana']
-            ],
-            "transactionsDonutChart" => [
-                "series" => [44, 55, 13, 43, 22],
-                "labels" => ['Apple', 'Mango', 'Orange', 'Watermelon', 'Banana']
-            ],
-            "earningsChart" => [
-                "series" => [['name' => 'Earnings', 'data' => [30, 40, 35, 50, 49]]],
+            "transactionTimelineChart" => [
+                "series" => [['name' => 'Transactions', 'data' => [30, 40, 35, 50, 49]]],
                 "labels" => ['January', 'February', 'March', 'April', 'May']
             ],
-            "salesChart" => [
-                "series" => [['name' => 'Sales', 'data' => [10, 41, 35, 51, 49]]],
+            "transactionCategorywiseChart" => [
+                "series" => [44, 55, 13, 43, 22],
+                "labels" => ['Prepaid', 'Postpaid', 'Broadband', 'Fastag', 'Utilities']
+            ],
+            "commissionTimelineChart" => [
+                "series" => [['name' => 'Commissions', 'data' => [20, 30, 25, 40, 39]]],
                 "labels" => ['January', 'February', 'March', 'April', 'May']
+            ],
+            "commissionCategorywiseChart" => [
+                "series" => [35, 45, 20, 50, 25],
+                "labels" => ['Prepaid', 'Postpaid', 'Broadband', 'Fastag', 'Utilities']
             ]
         ];
+        
     }
 }
 
