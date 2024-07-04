@@ -57,5 +57,8 @@ Route::middleware(['auth'])->group(function () {
         Route::get('roles', IndexRoleComponent::class)->name('roles.index');
         Route::get('roles/create', CreateRoleComponent::class)->name('roles.create');
         Route::get('roles/{role}/edit', EditRoleComponent::class)->name('roles.edit');
+
+        Route::get('reports/{reportType}',[HomeComponent::class,'generateReportLink'])->name('view.report');
+
     });
 });

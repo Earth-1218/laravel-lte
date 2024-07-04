@@ -30,7 +30,7 @@ class DeleteRoleComponent extends Component
             return;
         }
 
-        User::where('role_id', $this->role)->delete();
+        User::where('role_id', $this->role->id)->delete();
 
         $this->role->delete();
 

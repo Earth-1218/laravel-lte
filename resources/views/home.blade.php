@@ -58,6 +58,24 @@
                 </div>
             </div>
         </div>
+        <div class="card">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Download Generated Reports</h5>
+                <div class="row">
+                    <div class="col-md-4">
+                        <button type="button" wire:click="generateReport('transaction')" class="btn btn-primary btn-block">Download Transaction Report</button>
+                    </div>
+                    <div class="col-md-4">
+                        <button type="button" wire:click="generateReport('commission')" class="btn btn-primary btn-block">Download Commission Report</button>
+                    </div>
+                    <div class="col-md-4">
+                        <button type="button" wire:click="generateReport('customer')" class="btn btn-primary btn-block">Download Customers Report</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
     </div>
 </div>
 {{-- @endsection --}}
