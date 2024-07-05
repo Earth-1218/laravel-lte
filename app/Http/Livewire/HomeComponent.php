@@ -119,7 +119,6 @@ class HomeComponent extends Component
         $fileName = $reportType . '_report.pdf';
         $filePath = public_path('reports/' . $fileName);
         file_put_contents($filePath, $pdfOutput);
-        
         return $filePath;
     }
 
